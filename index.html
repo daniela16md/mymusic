@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My MP3 List</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>My Music Playlist</h1>
+  <ul id="mp3List"></ul>
+  <audio id="audioPlayer" controls></audio>
+
+  <script>
+    const songs = [
+      { title: "Goodness of God", file: "music/song1.mp3" },
+      { title: "Nobody loves me like you", file: "music/song2.mp3" },
+      { title: "Homesick for heaven", file: "music/song3.mp3" }
+    ];
+
+    const mp3List = document.getElementById('mp3List');
+    const audioPlayer = document.getElementById('audioPlayer');
+
+    songs.forEach(song => {
+      const li = document.createElement('li');
+      li.textContent = song.title;
+      li.style.cursor = 'pointer';
+      li.onclick = () => {
+        audioPlayer.src = song.file;
+        audioPlayer.play();
+      };
+      mp3List.appendChild(li);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+/* style.css */
+body {
+  font-family: sans-serif;
+  background: #f0f0f0;
+  padding: 20px;
+}
+
+li:hover {
+  background-color: #ddd;
+}

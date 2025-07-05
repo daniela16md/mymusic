@@ -8,7 +8,9 @@
 <body>
   <h1>My Music Playlist</h1>
   <ul id="mp3List"></ul>
-  <audio id="audioPlayer" controls></audio>
+  <audio id="audioPlayer" class="audioPlayer" controls></audio>
+  <h2>God bless you</h2>
+  <footer><span id="year"></span>&copy; music</footer>
 
   <script>
     const songs = [
@@ -25,17 +27,36 @@
 
     const mp3List = document.getElementById('mp3List');
     const audioPlayer = document.getElementById('audioPlayer');
+    let currentSongIndex = 0;
 
-    songs.forEach(song => {
+    songs.forEach((song, index) => {
       const li = document.createElement('li');
       li.textContent = song.title;
       li.style.cursor = 'pointer';
       li.onclick = () => {
-        audioPlayer.src = song.file;
-        audioPlayer.play();
+        currentSongIndex = index;
+        playSong(currentSongIndex);
       };
       mp3List.appendChild(li);
     });
+
+    function playSong(index) {
+      if (index >= 0 && index < songs.length) {
+        audioPlayer.src = songs[index].file;
+        audioPlayer.play();
+      }
+    }
+
+    // Automatically play next song
+    audioPlayer.addEventListener('ended', () => {
+      currentSongIndex++;
+      if (currentSongIndex < songs.length) {
+        playSong(currentSongIndex);
+      }
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
   </script>
 </body>
 </html>

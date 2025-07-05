@@ -18,6 +18,7 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 100%;
 }
 
 h1 {
@@ -28,13 +29,24 @@ h2 {
 }
 .audioPlayer {
   padding-top: 40px;
+  margin-bottom: 0;
+
 }
-li:hover {
-  background-color: #ddd;
-}
+
 ul {
   list-style-type: none;
   padding: 0;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+li {
+  margin: 5px 0;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  max-width: 100%;
 }
 footer {
   text-align: center;
@@ -58,7 +70,7 @@ footer {
   }
 
   .audioPlayer {
-    width: 70%;
+    width: 100%;
   }
 
 }

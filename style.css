@@ -1,4 +1,6 @@
-
+* {
+  box-sizing: border-box;
+}
 html, body {
   height: 100%;
   box-sizing: border-box;
@@ -6,7 +8,9 @@ html, body {
   background: lightblue;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
   text-align: center;
+  width: 100%;
 }
 .wrapper {
   flex: 1;

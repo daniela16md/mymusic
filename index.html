@@ -12,7 +12,35 @@
     <audio id="audioPlayer" class="audioPlayer" controls></audio>
     <h2>God bless you</h2>
   </div>
-  <footer><span id="year"></span>&copy; music</footer>
+  <footer>
+    <div><span id="currentYear"></span> &copy; MyMusicPlaylist</div>
+    <div>All rights reserved.</div>
+    <button id="showLegalBtn" class="legalnotice" type="button">Legal Notice</button>
+  </footer>
+  <div id="legalModal">
+    <div id="legalModalContent">
+      <p>
+        &copy; <span id="modalYear"></span> This site features embedded content provided by
+        <a href="https://www.spotify.com/" target="_blank" rel="noopener noreferrer">Spotify</a>.
+      </p>
+      <p>
+        All rights to the music, logos, and trademarks remain with their respective copyright holders,
+        artists, and content providers.
+      </p>
+      <p>
+        No media is hosted on this website. All streaming is done via officially supported Spotify embed features.
+      </p>
+      <p>
+        The content I created on this website — like layout, styling, and text — is mine. You may view it, but not copy or reuse it without permission.
+      </p>
+      <p>
+        This site is non-commercial and is hosted on 
+        <a href="https://vercel.com" target="_blank">Vercel</a> for personal purposes only.
+      </p>
+      <button id="closeModalBtn">Got it!</button>
+    </div>
+  </div>
+
 
   <script>
     const songs = [
@@ -57,8 +85,27 @@
       }
     });
 
-    document.getElementById('year').textContent = new Date().getFullYear();
+    const year = new Date().getFullYear();
+    document.getElementById('currentYear').textContent = year;
+    document.getElementById('modalYear').textContent = year;
 
+    // Modal functionality
+    const modal = document.getElementById('legalModal');
+    const showBtn = document.getElementById('showLegalBtn');
+    const closeBtn = document.getElementById('closeModalBtn');
+
+    showBtn.onclick = () => {
+      modal.style.display = 'block';
+    };
+    closeBtn.onclick = () => {
+      modal.style.display = 'none';
+    };
+    window.onclick = (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    };
   </script>
+  
 </body>
 </html>

@@ -7,97 +7,18 @@
 </head>
 <body>
   <div class="wrapper">
-    <h1>My Music Playlist</h1>
-    <ul id="mp3List"></ul>
-    <audio id="audioPlayer" class="audioPlayer" controls></audio>
-    <h2>God bless you</h2>
+    <h1>deleting...</h1>
+    
   </div>
   <footer>
     <div><span id="currentYear"></span> &copy; MyMusicPlaylist</div>
     <div>All rights reserved.</div>
-    <button id="showLegalBtn" class="legalnotice" type="button">Legal Notice</button>
   </footer>
-  <div id="legalModal">
-    <div id="legalModalContent">
-      <p>
-        &copy; <span id="modalYear"></span></a>.
-      </p>
-      <p>
-        The content I created on this website, like layout, styling, and text, is mine. You may view it, but not copy or reuse it without permission.
-      </p>
-      <p>
-        This site is non-commercial and is hosted on 
-        <a href="https://vercel.com" target="_blank">Vercel</a> for personal purposes only.
-      </p>
-      <button id="closeModalBtn">Got it!</button>
-    </div>
+  
   </div>
 
 
-  <script>
-    const songs = [
-      { title: "If i got Jesus", file: "music/song1.mp3" },
-      { title: "Goodness of God", file: "music/song2.mp3" },
-      { title: "Nobody loves me like you", file: "music/song3.mp3" },
-      { title: "Homesick for heaven", file: "music/song4.mp3" },
-      { title: "Battle belongs to you", file: "music/song5.mp3" },
-      { title: "Love of God", file: "music/song6.mp3" },
-      { title: "This is our God", file: "music/song7.mp3" },
-      { title: "God is good", file: "music/song8.mp3" },
-      { title: "Unashamed", file: "music/song9.mp3" }
-    ];
-
-    const mp3List = document.getElementById('mp3List');
-    const audioPlayer = document.getElementById('audioPlayer');
-    let currentSongIndex = 0;
-
-    songs.forEach((song, index) => {
-      const li = document.createElement('li');
-      li.textContent = song.title;
-      li.style.cursor = 'pointer';
-      li.onclick = () => {
-        currentSongIndex = index;
-        playSong(currentSongIndex);
-      };
-      mp3List.appendChild(li);
-    });
-
-    function playSong(index) {
-      if (index >= 0 && index < songs.length) {
-        audioPlayer.src = songs[index].file;
-        audioPlayer.play();
-      }
-    }
-
-    // Automatically play next song
-    audioPlayer.addEventListener('ended', () => {
-      currentSongIndex++;
-      if (currentSongIndex < songs.length) {
-        playSong(currentSongIndex);
-      }
-    });
-
-    const year = new Date().getFullYear();
-    document.getElementById('currentYear').textContent = year;
-    document.getElementById('modalYear').textContent = year;
-
-    // Modal functionality
-    const modal = document.getElementById('legalModal');
-    const showBtn = document.getElementById('showLegalBtn');
-    const closeBtn = document.getElementById('closeModalBtn');
-
-    showBtn.onclick = () => {
-      modal.style.display = 'block';
-    };
-    closeBtn.onclick = () => {
-      modal.style.display = 'none';
-    };
-    window.onclick = (e) => {
-      if (e.target === modal) {
-        modal.style.display = 'none';
-      }
-    };
-  </script>
+  
   
 </body>
 </html>
